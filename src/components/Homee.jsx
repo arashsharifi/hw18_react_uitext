@@ -2,9 +2,13 @@ import { useState } from "react";
 import pic from "../images/rafiki.png";
 import styles from "./Homee.module.css";
 import ModalInfoHome from "./ModalInfoHome";
+import { listsNote } from "../data";
+import NoteColor from "./NoteColor";
 
 function Homee({ handlerPage }) {
   const [modalShow, setModalShow] = useState(false);
+  const [notes, setNotes] = useState(listsNote);
+
   return (
     <div className={styles.containerHome}>
       <div className={styles.header}>
@@ -22,9 +26,16 @@ function Homee({ handlerPage }) {
           </div>
         </div>
       </div>
-      <div>
+      <div className={listsNote.length > 0 ? "d-none" : "d-block"}>
         <img className={styles.imgInfo} src={pic} alt="noot" />
         <p>Creat your first note!</p>
+      </div>
+      <div className={styles.notesContainer}>
+        {notes.map((note) => (
+          <div key={note.id} className={styles.note}>
+            <NoteColor key={note.id} ondatatxt={note.title} />
+          </div>
+        ))}
       </div>
       <div className={styles.buttonContainer}>
         <button
