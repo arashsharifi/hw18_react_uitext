@@ -74,3 +74,15 @@
   border-color: rgb(237, 231, 231);
   box-shadow: none;
 }
+.notesContainer {
+  width: 90%;
+}
+
+.note:hover {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  transform: 1s;
+  box-shadow: -4px 10px 26px 0px rgba(218, 248, 81, 0.75);
+  -webkit-box-shadow: -4px 10px 26px 0px rgba(237, 242, 85, 0.75);
+  -moz-box-shadow: -4px 10px 26px 0px rgba(193, 209, 53, 0.75);
+}
