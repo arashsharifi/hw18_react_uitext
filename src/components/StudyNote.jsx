@@ -1,13 +1,14 @@
-import { listsNote } from "../data";
 import styles from "./StudyNote.module.css";
 import StudyItem from "./StudyItem";
 import { useState } from "react";
 import ModalStudy from "./ModalStudy";
 
-function StudyNote({ handlerPage, findId, handlerToDelete }) {
+function StudyNote({ handlerPage, findId, handlerToDelete, sendData }) {
+  console.log(findId);
   const [modalShow, setModalShow] = useState(false);
 
-  const findObj = listsNote.find((item) => item.id === findId);
+  const findObj = sendData.find((item) => item.id === findId);
+  console.log(sendData);
   console.log(findObj);
 
   const objToList = [];
