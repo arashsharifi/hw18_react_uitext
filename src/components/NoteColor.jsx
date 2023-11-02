@@ -1,6 +1,6 @@
 import Alert from "react-bootstrap/Alert";
 
-function NoteColor({ ondatatxt }) {
+function NoteColor({ ondata, handlerIdData }) {
   const list = [];
   const groceries = [
     "primary",
@@ -17,12 +17,19 @@ function NoteColor({ ondatatxt }) {
   list.push(mygroceries);
   const obj = new Set(list);
   const one = Array.from(obj);
+  // function handlerIdData(id) {
+  //   console.log(id);
+  // }
 
   return (
     <>
       {one.map((variant) => (
-        <Alert key={variant} variant={variant}>
-          {ondatatxt}
+        <Alert
+          onClick={() => handlerIdData(ondata.id)}
+          key={variant}
+          variant={variant}
+        >
+          {ondata.title}
         </Alert>
       ))}
     </>

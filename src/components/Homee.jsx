@@ -5,10 +5,12 @@ import ModalInfoHome from "./ModalInfoHome";
 import { listsNote } from "../data";
 import NoteColor from "./NoteColor";
 
-function Homee({ handlerPage }) {
+function Homee({ handlerPage, handlerIdData, sendData }) {
   const [modalShow, setModalShow] = useState(false);
-  const [notes, setNotes] = useState(listsNote);
-
+  // const [notes, setNotes] = useState(listsNote);
+  // function handlerIdData(id) {
+  //   console.log(id);
+  // }
   return (
     <div className={styles.containerHome}>
       <div className={styles.header}>
@@ -31,9 +33,17 @@ function Homee({ handlerPage }) {
         <p>Creat your first note!</p>
       </div>
       <div className={styles.notesContainer}>
-        {notes.map((note) => (
-          <div key={note.id} className={styles.note}>
-            <NoteColor key={note.id} ondatatxt={note.title} />
+        {sendData.map((note) => (
+          <div
+            onClick={() => handlerPage("noteStudy")}
+            key={note.id}
+            className={styles.note}
+          >
+            <NoteColor
+              key={note.id}
+              ondata={note}
+              handlerIdData={handlerIdData}
+            />
           </div>
         ))}
       </div>
