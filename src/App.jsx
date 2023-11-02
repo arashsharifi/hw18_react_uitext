@@ -50,6 +50,7 @@ function App() {
           handlerPage={handlerPage}
           findId={findId}
           handlerToDelete={handlerToDelete}
+          sendData={sendData}
         />
       )}
     </div>
